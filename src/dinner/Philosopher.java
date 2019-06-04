@@ -47,7 +47,7 @@ public class Philosopher implements Runnable {
                 firstHungry = true;
                     Tool.showOnConsole(name + " 正在思考... \n");
                     Room.changeFace(id,"thinking");
-                Thread.sleep(Utils.randomIntThink());
+                Thread.sleep(Utils.randomThink());
                 state = State.HUNGRY;
             }
 
@@ -64,7 +64,7 @@ public class Philosopher implements Runnable {
                     Tool.showOnConsole(name + " 饥饿中... \n");
                 }
         try {
-            Thread.sleep(Utils.randomIntHungry());
+            Thread.sleep(Utils.randomHungry());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -82,7 +82,7 @@ public class Philosopher implements Runnable {
                     state = State.EATING;
                         Room.changeFace(id,"eating");
                         Tool.showOnConsole(name + " 正在吃饭... \n");
-                    Thread.sleep(Utils.randomIntEat());
+                    Thread.sleep(Utils.randomEat());
                     rightChopstick.drop(this);
                     leftChopstick.drop(this);
                     Room.changeFace(id,"thinking");
@@ -108,7 +108,7 @@ public class Philosopher implements Runnable {
 
                             Tool.showOnConsole(name + " 正在吃饭... \n");
                             Room.changeFace(id,"eating");
-                        Thread.sleep(Utils.randomIntEat());
+                        Thread.sleep(Utils.randomEat());
                         Room.changeFace(id,"thinking");
                         state = State.THINKING;
                     } catch (InterruptedException e) {
